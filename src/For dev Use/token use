@@ -1,0 +1,10 @@
+const token = localStorage.getItem("jwtToken");
+
+const res = await fetch("http://localhost:8080/api/bookings", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${token}`, // 👈 this is important
+  },
+  body: JSON.stringify(bookingData),
+});
